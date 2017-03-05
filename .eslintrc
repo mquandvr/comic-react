@@ -1,0 +1,35 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "plugins": [
+    "babel",
+    "react"
+  ],
+  "rules": {
+    /*Possible Errors */
+    "comma-dangle": ["error", "never"],
+
+      /* Strict Mode */
+    "strict": [1, "never"],
+    "semi": ["error", "always"],
+
+    /* ECMAScript 6 */
+    "constructor-super": 1,
+    "no-this-before-super": 1,
+    "no-var": 1,
+    "prefer-const": 1,
+
+    /* Legacy */
+    "max-params": 0,
+    "max-statements": 0,
+    "no-bitwise": 1,
+    "no-plusplus": 1,
+
+    /* Babel */
+    "babel/generator-star-spacing": [1, "after"]
+
+  }
+}
