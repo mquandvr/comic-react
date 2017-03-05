@@ -1,24 +1,15 @@
 sudo: false
 language: node_js
 node_js:
-  - "7"
   - "6"
-  - "4"
 
 matrix:
-  include:
-    - node_js: "lts/*"
-      env: WEBPACK_VERSION="1"
-    - node_js: "lts/*"
-      env: LINT=true
-    - node_js: "0.10"
-      env: WEBPACK_VERSION="1"
-    - node_js: "0.12"
-      env: WEBPACK_VERSION="1"
-before_script:
-  - 'if [ "$WEBPACK_VERSION" ]; then npm install webpack@$WEBPACK_VERSION; fi'
-script:
-  - 'if [ -n "${LINT-}" ]; then npm run lint ; fi'
-  - 'if [ -z "${LINT-}" ]; then npm run test-ci ; fi'
+  fast_finish: true
+  
+before_install:
+    - "npm config set spin false"
+    - "npm install -g npm@^2"
+install:
+    - npm install
 after_success:
   - npm run coverage
